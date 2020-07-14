@@ -22,15 +22,16 @@ const PORT = process.env.PORT || 3001;
 //   "longitude": "-122.332071"
 // }
 
-app.get('./data', (request, response) => {
+app.get('/location', (request, response) => {
 
-  console.log(response);
+  // console.log(response);
+  console.log('inside location');
   let city = request.query.city;
-  let geoData = require('./data/location.json')
+  let geoData = require('./data/location.json');
 
-  const obj = new Location(city, geoData)
+  const obj = new Location(city, geoData);
   response.send(obj);
-})
+});
 
 function Location(location, geoData){
   this.search_query = location;
